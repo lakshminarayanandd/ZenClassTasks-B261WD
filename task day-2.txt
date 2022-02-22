@@ -1,0 +1,103 @@
+I.Five differences between Browser JS(console) v Nodejs
+
+    1.Application:
+     Browser.js is mainly used for client-side applications like validations on a web page or dynamic page display and as the name suggests it gets 
+     executed in the browser only while in the case of Node.js javascript code gets executed outside the browser as it is an interpreter as well as 
+     an environment for running javascript and used for server-side applications.In nutshell, we can say Browser.js is used for frontend 
+     while Node.js is used for backend applications.
+
+    2.System access:
+     Node.js has full system access i.e can read and write directly to the file system like any other application that also concludes that we can write 
+     complete software using Node.js while Browser.js is sandboxed for the safety purposes and have access limited to the browser. Now, that also makes 
+     it important that we should refrain from running any untrusted Javascript in Node.js.
+
+    3.Running Engine
+     Browser.js runs any engine like Spider monkey (Firefox), JavaScript Core (Safari), V8 (Google Chrome) accordingly to the browser while Node.js runs in 
+     a V8 engine which is mainly used by google chrome.
+
+    4.Headless
+     Node.js is headless i.e without any GUI while Bowsers are not headless.
+
+    5.Modularity
+      In Node.js everything is a module i.e it is mandatory to keep everything inside a module while moduling is not mandatory for browser javascript.
+      
+      
+II.How the browser actually renders a website:
+     1.Components of makeup a browser are: 
+                      Bindings 
+                      Rendering: Parsing, layout, painting etc.  
+                      Platform 
+                      Javascript Virtual Machine.
+
+     2.Bindings are operating system stuff. Platform have stuff about form controls between 
+        operating systems. And we see the details about Rendering below.
+
+     3.Parsing: 
+             Parsing html:  
+             Html is forgiving by nature.
+             Parsing isn’t straight forward.
+             Can be halted.
+             Will do speculative parsing.
+             It’s reentrant.   
+
+      4.Render/Frame tree:   
+             DOM + CSSOM:
+                  Combines two object models, style resolution
+                  This is the actual representation of what will show on screen
+                   Not a one to one mapping of your html.
+
+       5.Layout:
+                It’s a recursive process:
+                     Traverse render tree.
+                      Nodes position and size.
+                      Layout its children.
+                Layout computes where a node will be on the screen.
+
+       6.In real world Fast Dom, preventing layout thrashing. Most moders JS framework do  
+          this internally.
+
+       7.Paint:
+               Paint Setup:
+                    Will take the layed out render trees.
+                     Create layers.
+                     Incremental Process.
+                     Builds up over 12 phases.
+
+               Painting:
+                      Produces a bitmap from each layer.
+                      Bitmap is uploaded to the GPU as a texture.
+                      Composites the textures into a final image to render to the screen.
+                      
+
+III.Execution of the below code in browser console:
+
+         typeof(1) 
+         "number" 
+         
+         typeof(1.1) 
+         "number" 
+         
+         typeof('1.1') 
+         "string" 
+
+         typeof(true) 
+         "boolean" 
+
+         typeof(null) 
+         "object" 
+
+         typeof(undefined) 
+         "undefined" 
+
+         typeof([]) 
+         "object" 
+
+         typeof({}) 
+         "object" 
+
+         typeof(Nan) 
+         "undefined" 
+
+         typeof(NaN) 
+         "number" 
+
